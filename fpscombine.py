@@ -7,7 +7,7 @@ widj = 320
 hgh = 240
 class VideoCapture:
     
-    def __init__(self, src=0):
+    def __init__(self, cv2.CAP_V4L2):
         self.cap = cv2.VideoCapture(src)
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, widj)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, hgh)
