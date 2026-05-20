@@ -122,8 +122,8 @@ def main():
                 if M['m00'] != 0:
                     cx = int(M['m10']/M['m00'])
                     cy = int(M['m01']/M['m00'])
-                    intccx = int(320-cx)
-                    intccy = int(320-cy)
+                    intccx = int(160-cx)
+                    intccy = int(160-cy)
                     main.ccx = str(intccx)
                     main.ccy = str(intccy)
                     # int(320 - cx)
