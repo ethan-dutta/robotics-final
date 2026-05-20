@@ -68,12 +68,12 @@ void loop() {
     if(-20<whspeed<20){
       moveForward(100);
     }
-    else if(0<whspeed<160){
+    else if(0<whspeed<140){
       rightMotor(whspeed);
-      leftMotor(whspeed - 159);
+      leftMotor(whspeed - 139);
     }
-    else if(0>whspeed>-160){
-      rightMotor(whspeed-159);
+    else if(0>whspeed>-140){
+      rightMotor(whspeed-139);
       leftMotor((whspeed*-1)-159);
     }
 
