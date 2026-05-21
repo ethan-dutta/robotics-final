@@ -12,6 +12,9 @@ from queue import Queue
 import serial
 import random
 
+ser=serial.Serial('/dev/ttyACM0', 9600, timeout = 1)
+ser.reset_input_buffer()
+
 class VideoCapture:
     
     def __init__(self, src=0):
@@ -135,6 +138,10 @@ def main():
                     cv.imshow("Contours", result)
             #cv.imshow('Perspective', result)
             #cv.imshow('Processed Feed', processed_frame)
+            number = ser.write(main.ccx.encode('utf-8'))
+            line= ser.readline().decode('utf-8').rstrip()
+            print(line)
+            time.sleep(1)
             if cv.waitKey(1) & 0xFF == ord('q'):
                 break
         except KeyboardInterrupt:
@@ -143,11 +150,3 @@ def main():
     cv.destroyAllWindows()
 if __name__ == '__main__':
     main()
-    ser=serial.Serial('/dev/ttyACM0', 9600, timeout = 1)
-    ser.reset_input_buffer()
-
-    while True:
-        number = ser.write(main.ccx.encode('utf-8'))
-        line= ser.readline().decode('utf-8').rstrip()
-        print(line)
-        time.sleep(1)
